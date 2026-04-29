@@ -1,0 +1,22 @@
+name: rtl-lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  rtl:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: setup rust
+        uses: dtolnay/rust-toolchain@stable
+      - name: install verilator
+        run: sudo apt-get update && sudo apt-get install -y verilator
+      - name: lint systemverilog rtl
+        run: cargo xtask lint-rtl
+      - name: lint verilog-2001 rtl
+        run: cargo xtask lint-rtl --language verilog-2001
+      - name: lint verilog-2005 rtl
+        run: cargo xtask lint-rtl --language verilog-2005

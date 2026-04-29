@@ -1,0 +1,14 @@
+[package]
+name = "xtask"
+version = "0.1.0"
+edition = "2021"
+license = "AGPL-3.0-or-later"
+
+[dependencies]
+clap = { workspace = true }
+serde_json = { workspace = true }
+serde = { workspace = true, features = ["derive"] }
+walkdir = "2.5"
+thiserror = { workspace = true }
+af-board-db = { path = "../af-board-db" }
+af-report = { path = "../af-report" }

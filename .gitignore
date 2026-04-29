@@ -1,0 +1,6 @@
+target/
+**/target/
+obj_dir/
+*.log
+*.out
+tb/verilator/*.bin
